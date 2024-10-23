@@ -1,6 +1,6 @@
-package com.CRM.pages;
+package com.crm.pages;
 
-import com.CRM.utilities.Driver;
+import com.crm.utilities.Driver;
 import org.openqa.selenium.support.PageFactory;
 
 public class LoginPage extends BasePage {
@@ -11,7 +11,16 @@ public class LoginPage extends BasePage {
 
 
 
-    public  void login( String userName, String password ){
+
+
+
+    public void login(String username, String password) {
+
+    }
+
+
+    public void login(String userType) {
+
 
 
     }
