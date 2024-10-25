@@ -1,0 +1,1 @@
+Feature: As a user, I should be able to access my profile page.
