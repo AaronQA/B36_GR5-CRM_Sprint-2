@@ -33,8 +33,7 @@ public class HomePage {
     @FindBy (xpath="//span[@class='menu-popup-item-text']")
     public List<WebElement> moreDropdown;
 
-    @FindBy(xpath= "//div[@id='user-block']")
-    public WebElement userProfile;
+
 
 
 
