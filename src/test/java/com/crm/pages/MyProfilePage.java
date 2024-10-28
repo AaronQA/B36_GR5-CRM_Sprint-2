@@ -13,11 +13,25 @@ public class MyProfilePage {
     @FindBy(xpath= "//span[.='My Profile']")
     public WebElement MyProfile;
 
-    @FindBy(xpath="//a[@class='profile-menu-avatar user-default-avatar']")
-    public WebElement defaultAvatar;
 
     @FindBy(xpath = "//a[@class='profile-menu-name']")
     public WebElement personalUser;
 
+    @FindBy(xpath = "//a[@class='profile-menu-email']")
+    public WebElement email;
 
+    @FindBy(xpath ="//a[.='General']")
+    public WebElement general;
+
+    @FindBy(xpath ="//a[.='Drive']")
+    public WebElement drive;
+
+    @FindBy(xpath ="//a[.='Tasks']")
+    public WebElement task;
+
+    @FindBy(xpath ="//a[.='Calendar']")
+    public WebElement calendar;
+
+    @FindBy(xpath ="//a[.='Conversations']")
+    public WebElement conversation;
 }
