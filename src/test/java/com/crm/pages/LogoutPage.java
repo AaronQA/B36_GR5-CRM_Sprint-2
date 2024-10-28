@@ -11,8 +11,8 @@ public class LogoutPage extends BasePage{
     @FindBy(xpath = "//span[.='Log out']")
     public WebElement logoutButton;
 
-    public void logout(){
-        profileIcon.click();
-        logoutButton.click();
-    }
+//    public void logout(){
+//        profileIcon.click();
+//        logoutButton.click();
+//    }
 }
