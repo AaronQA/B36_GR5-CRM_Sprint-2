@@ -1,21 +1,18 @@
 Feature: As a user, I should be able to access my profile page.
 
 
-@login @hr @wip
-    Scenario Outline: user can view the following options on My Profile page.
-      Given the user is logged in and navigates to the My Profile page
-      When the user views the "<option>" section
-      Then the "<option>" section should be visible
+@login @hr
+Scenario: Verify user can access the My Profile page
+  When the user navigates to the My Profile page
+  Then the My Profile page should be accessible
 
-      Examples:
-        | option        |
-        | General       |
-        | Drive         |
-        | Tasks         |
-        | Calendar      |
-        | Conversations |
-
-
+  Scenario: Verify all sections are present on the My Profile page
+    Given the user is on the My Profile page
+    Then the "General" section should be visible and accessible
+    And the "Drive" section should be visible and accessible
+    And the "Tasks" section should be visible and accessible
+    And the "Calendar" section should be visible and accessible
+    And the "Conversations" section should be visible and accessible
 
 
 
