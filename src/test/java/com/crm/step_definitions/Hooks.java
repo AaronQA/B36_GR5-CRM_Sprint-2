@@ -48,11 +48,7 @@ public void login_scenario_before(Scenario scenario) {
     } else if (scenario.getSourceTagNames().contains("@helpdesk")) {
         userType = "helpdesk";
     }
-
-    String username = ConfigurationReader.getProperty(userType+"_username");
-    String password = ConfigurationReader.getProperty(userType+"_password");
-
-    loginPage.login(username, password);
+    loginPage.login(userType);
 }
 
     /*
