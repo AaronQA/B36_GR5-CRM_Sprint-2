@@ -19,12 +19,8 @@ public class HomePage {
     @FindBy(xpath = "//span[@id='feed-add-post-form-tab-tasks']")
     public WebElement task;
 
-
-
     @FindBy(xpath = "//span[@id='feed-add-post-form-tab-calendar']")
     public WebElement event;
-
-
 
     @FindBy (xpath="//span[@id='feed-add-post-form-tab-vote']")
     public WebElement poll;
@@ -71,5 +67,5 @@ public class HomePage {
 
 }
 
-}
+
 
