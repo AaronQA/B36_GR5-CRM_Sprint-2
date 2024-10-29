@@ -40,12 +40,9 @@ public class HomePage {
     @FindBy(xpath = "//span[@id='bx-b-uploadfile-blogPostForm']")
     public WebElement uploadIcon;
 
-//    @FindBy(xpath = "//table[@class='diskuf-selector-table wd-fa-add-file-light-table']//td[starts-with(@class,'diskuf-selector wd-fa-add-file-light-cell wd-fa-add-file-from-main')]")
-//    public WebElement uploadFileAndImages;
-    //@FindBy(xpath = "//div[@style='display: block; opacity: 1;']//td[starts-with(@class,'diskuf-selector wd-fa-add-file-light-cell wd-fa-add-file-from-main')]//input[@type='file']")
+
     @FindBy(xpath = "//div[@style='display: block; opacity: 1;']//input[@type='file']")
     public WebElement uploadFileAndImages;
-
 
 
     @FindBy(xpath = "//body[@contenteditable='true']")
@@ -61,10 +58,10 @@ public class HomePage {
     public WebElement sendButtonInMessage;
 
 
+    public void uploadFile(String fileType) {
 
-public void uploadFile(String fileType){
+        this.uploadFileAndImages.sendKeys(fileType);
+    }
 
-    this.uploadFileAndImages.sendKeys(fileType);
-}
 }
 
