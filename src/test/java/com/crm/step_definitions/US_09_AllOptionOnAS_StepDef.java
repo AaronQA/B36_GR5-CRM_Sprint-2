@@ -8,18 +8,14 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
 
 public class US_09_AllOptionOnAS_StepDef {
 
-
-    @Given("user is already logged in to The nextbasecrm Web app with valid {string} and {string}")
-    public void userIsAlreadyLoggedInToTheNextbasecrmWebAppWithValidAnd(String username, String password) {
-        Driver.getDriver().get("https://login2.nextbasecrm.com/stream/");
-        LoginPage loginPage = new LoginPage();
-        loginPage.login(username,password);
-    }
 
     HomePage activityStreamPage= new HomePage();
 
@@ -28,20 +24,39 @@ public class US_09_AllOptionOnAS_StepDef {
     @Given("the user is on the Activity Stream page")
     public void the_user_is_on_the_activity_stream_page() {
 
-
+        Assert.assertTrue(Driver.getDriver().getCurrentUrl().contains("stream"));
     }
+
     @When("the user checks for the {string} option")
-    public void the_user_checks_for_the_option(List<String> expectedFeedOptions) {
-
-
-        List<String> actualFeedOptions= BrowserUtils.getElementsText(activityStreamPage.feedOptions);
-        Assert.assertEquals(actualFeedOptions, expectedFeedOptions);
+    public void the_user_checks_for_the_option(String option) {
+        for (WebElement element : activityStreamPage.feedOptions) {
+            if (element.getText().equals(option)) {
+                System.out.println("The option '" + option + "' is present.");
+            }
+        }
 
 
     }
-    @Then("the {string} option should be visible")
-    public void the_option_should_be_visible(String string) {
 
+    @Then("the {string} option should be visible")
+    public void the_option_should_be_visible(String expectedOption) {
+//        List<String> actualFeedOptions= BrowserUtils.getElementsText(activityStreamPage.feedOptions);
+//        Assert.assertEquals(actualFeedOptions, expectedFeedOptions);
+
+
+        List<WebElement> feedOptions = activityStreamPage.feedOptions; // The list of options on the page
+        boolean isOptionVisible = false;
+
+        // Loop through each option and check if it matches the expected option
+        for (WebElement option : feedOptions) {
+            if (option.getText().trim().equals(expectedOption)) {
+                isOptionVisible = option.isDisplayed(); // Check if the option is actually visible
+                break;
+            }
+        }
+
+        // Assert that the option is visible
+        Assert.assertTrue("The option '"  + expectedOption + "' should be visible, but it is not.", isOptionVisible);
     }
 
     @Given("the {string} tab is available")
