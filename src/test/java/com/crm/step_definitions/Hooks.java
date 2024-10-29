@@ -65,7 +65,7 @@ public void login_scenario_before(Scenario scenario) {
         }
 
         BrowserUtils.sleep(2);
-        Driver.closeDriver();
+       // Driver.closeDriver();
 
     }
 
