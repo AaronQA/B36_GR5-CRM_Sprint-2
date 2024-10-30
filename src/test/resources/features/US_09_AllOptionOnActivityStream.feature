@@ -6,8 +6,8 @@ Feature: Verify Activity Stream options
   @login @hr
   Scenario Outline: Verify main options on the Activity Stream page
     Given the user is on the Activity Stream page
-    When the user checks for the "<option>" option
-    Then the "<option>" option should be visible
+    When the user verifies that the  feed options are visible on the page
+    Then the user verifies  the feed "<option>" options are as expected
 
     Examples:
       | option  |
@@ -18,10 +18,9 @@ Feature: Verify Activity Stream options
       | MORE    |
 
   Scenario: Verify additional options under the MORE tab
-    Given the user is on the Activity Stream page
-    And the "MORE" tab is available
-    When the user clicks on the "MORE" tab
-    Then the following options should be visible under the MORE tab:
+    Given the MORE tab is displayed on the Activity Stream page
+    When the user clicks on the MORE tab
+    Then verify the following options are visible under the MORE tab as expected
       | File         |
       | Appreciation |
       | Announcement |
