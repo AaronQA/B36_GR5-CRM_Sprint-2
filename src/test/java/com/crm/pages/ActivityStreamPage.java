@@ -8,28 +8,28 @@ import org.openqa.selenium.support.PageFactory;
 public class ActivityStreamPage {
     WebDriver driver;
 
-    @FindBy(id = "pollTab") // Replace with actual locator
-    WebElement pollTab;
+    @FindBy(id = "poll")
+    WebElement poll;
 
-    @FindBy(id = "messageTitle") // Replace with actual locator
-    WebElement messageTitle;
+    @FindBy(id = "title")
+    WebElement Title;
 
-    @FindBy(id = "pollQuestion") // Replace with actual locator
-    WebElement pollQuestion;
+    @FindBy(id = "question")
+    WebElement question;
 
-    @FindBy(css = ".pollOption") // Replace with actual locator
-    WebElement pollOptions;
+    @FindBy(css = "answer1")
+    WebElement answer1;
 
-    @FindBy(id = "submitPoll") // Replace with actual locator
-    WebElement submitButton;
+    @FindBy(id = "send")
+    WebElement send;
 
-    @FindBy(css = ".confirmationMessage") // Replace with actual locator
+    @FindBy(css = ".confirmationMessage")
     WebElement confirmationMessage;
 
-    @FindBy(css = ".errorMessage") // Replace with actual locator
+    @FindBy(css = ".errorMessage")
     WebElement errorMessage;
 
-    @FindBy(id = "deliveryOption") // Replace with actual locator for delivery option
+    @FindBy(id = "deliveryOption")
     WebElement deliveryOption;
 
     public ActivityStreamPage(WebDriver driver) {
@@ -37,26 +37,26 @@ public class ActivityStreamPage {
         PageFactory.initElements(driver, this);
     }
 
-    public void clickPollTab() {
-        pollTab.click();
+    public void clickPoll() {
+        poll.click();
     }
 
     public void enterMessageTitle(String title) {
-        messageTitle.sendKeys(title);
+        Title.sendKeys(title);
     }
 
     public void enterPollQuestion(String question) {
-        pollQuestion.sendKeys(question);
+        this.question.sendKeys(question);
     }
 
     public void addPollOptions(String... options) {
         for (String option : options) {
-            pollOptions.sendKeys(option);
+            answer1.sendKeys(option);
         }
     }
 
     public void submitPoll() {
-        submitButton.click();
+        send.click();
     }
 
     public boolean isConfirmationDisplayed() {

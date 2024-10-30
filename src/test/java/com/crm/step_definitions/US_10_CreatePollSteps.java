@@ -17,7 +17,7 @@ public class US_10_CreatePollSteps {
 
     @When("the user clicks on the Poll tab")
     public void the_user_clicks_on_the_Poll_tab() {
-        activityStreamPage.clickPollTab();
+        activityStreamPage.clickPoll();
     }
 
     @Then("the default delivery option should be {string}")
