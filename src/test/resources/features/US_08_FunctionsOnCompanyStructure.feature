@@ -19,7 +19,7 @@ Feature: Functions on Company Structure in Employee page
 
     Examples:
       | department_name      |
-      | Department of Health |
+      | Department of Journaling |
 
   @login @helpdesk @employees
   Scenario: Verify that the “ADD DEPARTMENT” button is not displayed for Helpdesk and Marketing users
