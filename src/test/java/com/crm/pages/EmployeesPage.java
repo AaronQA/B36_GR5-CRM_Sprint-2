@@ -63,8 +63,7 @@ public class EmployeesPage {
         BrowserUtils.refreshPage();
         boolean found = false;
         for (WebElement titleElement : departmentTitles) {
-            if (titleElement.getText().trim().equalsIgnoreCase(expectedTitle)) { // Using equalsIgnoreCase for case-insensitivity
-                System.out.println("Department found: " + expectedTitle);
+            if (titleElement.getText().trim().equalsIgnoreCase(expectedTitle)) {
                 found = true;
                 break;
             }
