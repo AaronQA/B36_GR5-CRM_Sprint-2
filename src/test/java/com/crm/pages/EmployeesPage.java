@@ -1,5 +1,6 @@
 package com.crm.pages;
 
+import com.crm.utilities.BrowserUtils;
 import com.crm.utilities.Driver;
 import org.junit.Assert;
 import org.openqa.selenium.By;
@@ -59,7 +60,7 @@ public class EmployeesPage {
     public List<WebElement> departmentTitles;
 
     public void verifyDepartmentTitle(String expectedTitle) {
-
+        BrowserUtils.refreshPage();
         boolean found = false;
         for (WebElement titleElement : departmentTitles) {
             if (titleElement.getText().trim().equalsIgnoreCase(expectedTitle)) { // Using equalsIgnoreCase for case-insensitivity
