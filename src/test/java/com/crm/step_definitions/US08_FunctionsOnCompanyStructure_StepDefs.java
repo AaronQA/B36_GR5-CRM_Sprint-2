@@ -1,18 +1,9 @@
 package com.crm.step_definitions;
-
 import com.crm.pages.EmployeesPage;
 import com.crm.utilities.BrowserUtils;
-import com.crm.utilities.Driver;
-import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.time.Duration;
 
 public class US08_FunctionsOnCompanyStructure_StepDefs {
     EmployeesPage employeesPage = new EmployeesPage();
@@ -26,7 +17,6 @@ public class US08_FunctionsOnCompanyStructure_StepDefs {
         String actualHeader = employeesPage.companyStructureHeader.getText();
         Assert.assertEquals(actualHeader, expectedHeader);
     }
-// ---------------------------------------------------------------
     @When("user clicks the {string} button")
     public void user_clicks_the_button(String expectedButton) {
         employeesPage.clickButton(expectedButton);
@@ -41,9 +31,9 @@ public class US08_FunctionsOnCompanyStructure_StepDefs {
     }
     @Then("the new department {string} should be added successfully")
     public void the_new_department_should_be_added_successfully(String expectedName) {
+        BrowserUtils.refreshPage();
         employeesPage.verifyDepartmentTitle(expectedName);
     }
-//    ---------------------------------------------------------
     @Then("the {string} button should not be visible to the user")
     public void the_button_should_not_be_visible_to_the_user(String expectedButton) {
         employeesPage.addDepartmentNotVisible(expectedButton);
