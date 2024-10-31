@@ -2,7 +2,7 @@ Feature: Functions on Company Structure in Employee page
   User Story: As a user, I should be able to use functions on Company Structure under Employee menu.
 
 
-  @employees
+  @B36T5-322
   Scenario Outline: Verify that the Company Structure is visible for all user types
     When user logs in as "<userType>"
     When the user navigates to the "Employees" page
@@ -14,7 +14,7 @@ Feature: Functions on Company Structure in Employee page
       | marketing |
 
 
-   @employees
+   @B36T5-322
   Scenario Outline: Verify that the HR user can add a department from the Company Structure
     When user logs in as "<userType>"
     When the user navigates to the "Employees" page
@@ -30,7 +30,7 @@ Feature: Functions on Company Structure in Employee page
       | Department of Education  | hr       |
 
 
-  @employees
+  @B36T5-322
   Scenario Outline: Verify that the “ADD DEPARTMENT” button is not displayed for Helpdesk and Marketing users
     When user logs in as "<userType>"
     When the user navigates to the "Employees" page
