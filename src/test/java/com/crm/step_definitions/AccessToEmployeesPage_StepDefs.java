@@ -1,9 +1,7 @@
 package com.crm.step_definitions;
 
-import com.crm.pages.BasePage;
 import com.crm.pages.EmployeesPage;
 import com.crm.utilities.BrowserUtils;
-import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
@@ -23,7 +21,7 @@ public class AccessToEmployeesPage_StepDefs {
     @Then("user should see the following modules")
     public void user_should_see_the_following_modules(List<String> expectedModules) {
 
-        List<String> actualModules = new ArrayList<String>();
+        List<String> actualModules = new ArrayList<>();
         actualModules.add(employeesPage.companyStructureTab.getText());
         actualModules.add(employeesPage.findEmployeeTab.getText());
         actualModules.add(employeesPage.telephoneDirectoryTab.getText());
