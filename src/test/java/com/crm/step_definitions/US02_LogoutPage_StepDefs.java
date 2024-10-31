@@ -3,14 +3,12 @@ package com.crm.step_definitions;
 import com.crm.pages.LoginPage;
 import com.crm.pages.LogoutPage;
 import com.crm.utilities.BrowserUtils;
-import com.crm.utilities.ConfigurationReader;
-import com.crm.utilities.Driver;
-import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class LogoutPageStepDefs {
+public class US02_LogoutPage_StepDefs {
 
+    //LoginPage loginPage = new LoginPage();
     LogoutPage logoutPage = new LogoutPage();
 
     @When("user clicks on the profile icon")
@@ -27,7 +25,10 @@ public class LogoutPageStepDefs {
     @Then("user should be redirected to the login page")
     public void user_should_be_redirected_to_the_login_page() {
 
+        BrowserUtils.refreshPage();
         BrowserUtils.verifyURLContains("login");
 
     }
+
+
 }
