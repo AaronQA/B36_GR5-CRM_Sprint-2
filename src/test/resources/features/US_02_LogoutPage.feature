@@ -1,11 +1,10 @@
 Feature: As a user, I should be able to logout.
 
-
   @US_02
   Scenario Outline: Verify user can log out from the app after clicking the "Log out" button
     Given user is on the login page
     When user logs in as "<userType>"
-    Then user clicks on the profile icon
+    Then user clicks on the profile dropdown
     Then user clicks the logout button
     And user should be redirected to the login page
     Examples:
@@ -16,18 +15,15 @@ Feature: As a user, I should be able to logout.
 
 
 
+  Scenario Outline: Verify user can see 5 options under the profile name
 
-  Scenario Outline : Verify user can see 5 options under the profile name
     When user logs in as "<userType>"
-
-    Then user clicks on the profile icon
-    Then user clicks on the profile icon
-    And following "<Options>" should be displayed:
-      | Option                  |
+    Then user clicks on the profile dropdown
+    And user should be able to see 5 options under profile name
       | My Profile              |
       | Edit Profile Settings   |
       | Themes                  |
-      | Configure Notifications |
+      | Configure notifications |
       | Log out                 |
 
     Examples:
@@ -35,5 +31,11 @@ Feature: As a user, I should be able to logout.
       | hr        |
       | helpdesk  |
       | marketing |
+
+
+
+
+
+
 
 
