@@ -8,6 +8,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class US02_LogoutPage_StepDefs {
@@ -37,14 +38,18 @@ public class US02_LogoutPage_StepDefs {
     }
 
 
-    @Then("user should be able to see {int} options under profile name")
-    public void user_should_be_able_to_see_options_under_profile_name(Integer numberOfOptions, List<String> expectedOptions) {
+    @Then("user should be able to see following options under profile name")
+    public void user_should_be_able_to_see_options_under_profile_name(List<String> expectedOptions) {
 
-        List<String> actualOptions = BrowserUtils.getElementsText(logoutPage.profileOptions);
+        List<String> actualOptions = new ArrayList<>();
+        actualOptions.add(logoutPage.myProfile.getText());
+        actualOptions.add(logoutPage.editProfileSettings.getText());
+        actualOptions.add(logoutPage.themes.getText());
+        actualOptions.add(logoutPage.configureNotifications.getText());
+        actualOptions.add(logoutPage.logoutButton.getText());
 
         Assert.assertEquals(expectedOptions, actualOptions);
     }
-
 
 
 }
