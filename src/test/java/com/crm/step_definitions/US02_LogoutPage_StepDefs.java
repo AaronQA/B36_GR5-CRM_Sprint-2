@@ -6,6 +6,7 @@ import com.crm.pages.LogoutPage;
 import com.crm.utilities.BrowserUtils;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.junit.Assert;
 
 import java.util.List;
 
@@ -17,11 +18,13 @@ public class US02_LogoutPage_StepDefs {
 
     @When("user clicks on the profile dropdown")
     public void user_clicks_on_the_profile_dropdown() {
+        BrowserUtils.sleep(2);
         logoutPage.userProfile.click();
     }
 
     @Then("user clicks the logout button")
     public void user_clicks_the_button() {
+        BrowserUtils.sleep(2);
         logoutPage.logout();
     }
 
@@ -38,6 +41,8 @@ public class US02_LogoutPage_StepDefs {
     public void user_should_be_able_to_see_options_under_profile_name(Integer numberOfOptions, List<String> expectedOptions) {
 
         List<String> actualOptions = BrowserUtils.getElementsText(logoutPage.profileOptions);
+
+        Assert.assertEquals(expectedOptions, actualOptions);
     }
 
 
