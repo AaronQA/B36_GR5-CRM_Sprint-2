@@ -9,36 +9,35 @@ import org.openqa.selenium.support.PageFactory;
 
 import java.util.List;
 
-public class LogoutPage extends HomePage{
+public class LogoutPage extends HomePage {
 
     public LogoutPage() {
 
         PageFactory.initElements(Driver.getDriver(), this);
     }
 
-//    @FindBy(xpath= "//div[@id='user-block']")
-//    public WebElement profileIcon;
-
     @FindBy(xpath = "//span[.='Log out']")
     public WebElement logoutButton;
 
-    public void logout(){
+    public void logout() {
         userProfile.click();
         logoutButton.click();
     }
 
-    @FindBy(xpath = "//div[@class='menu-popup-items']")
-    public List<WebElement> profileOptions;
+    @FindBy(xpath = "//div[@id='menu-popup-user-menu']")
+    public List<WebElement> profileIconOptions;
 
-    public void profileOptions(){
-        userProfile.click();
-        BrowserUtils.verifyElementDisplayed((By) profileOptions);
-    }
+    @FindBy(xpath = "//span[.='My Profile']")
+    public WebElement myProfile;
 
+    @FindBy(xpath = "//span[.='Edit Profile Settings']")
+    public WebElement editProfileSettings;
 
+    @FindBy(xpath = "//div[@id='menu-popup-user-menu']//span[text()='Themes']")
+    public WebElement themes;
 
-
-
+    @FindBy(xpath = "//span[text()='Configure notifications']")
+    public WebElement configureNotifications;
 
 
 }
