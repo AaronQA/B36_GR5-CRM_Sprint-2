@@ -1,19 +1,19 @@
 package com.crm.step_definitions;
 
+
 import com.crm.pages.ActivityStreamPage;
 import io.cucumber.java.en.*;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class US_10_CreatePollSteps {
+public class US_10_Create_Poll {
+
+
     WebDriver driver = new ChromeDriver();
     ActivityStreamPage activityStreamPage = new ActivityStreamPage(driver);
 
-    @Given("the user is on the Activity Stream page")
-    public void the_user_is_on_the_Activity_Stream_page() {
-        driver.get("https://login2.nextbasecrm.com/stream/?login=yes");
-    }
+
 
     @When("the user clicks on the Poll tab")
     public void the_user_clicks_on_the_Poll_tab() {
