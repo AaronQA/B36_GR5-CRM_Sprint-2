@@ -2,93 +2,129 @@ package com.crm.step_definitions;
 
 
 import com.crm.pages.HomePage;
-import com.crm.utilities.BrowserUtils;
 import com.crm.utilities.Driver;
 import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.StaleElementReferenceException;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
+
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.io.FileInputStream;
-import java.time.Duration;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
+/**
+ * This class contains step definitions for the user story US05 - Upload Files and Pictures.
+ * It interacts with the HomePage to perform actions related to file and image uploads.
+ *
+ * @author Nadira
+ * @version 1.0
+ */
 public class US05_UploadFilesAndPic_StepDefs {
+
+    WebDriverWait wait;
     HomePage homePage = new HomePage();
 
-    String docx = "C:\\Users\\hrala\\IdeaProjects\\instructor\\B36_GR5-CRM_Sprint-2\\src\\test\\resources\\files\\TestDocx.docx";
-    String jpeg = "C:\\Users\\hrala\\IdeaProjects\\instructor\\B36_GR5-CRM_Sprint-2\\src\\test\\resources\\files\\TestJpeg.jpg";
-    String pdf = "C:\\Users\\hrala\\IdeaProjects\\instructor\\B36_GR5-CRM_Sprint-2\\src\\test\\resources\\files\\TestPdf.pdf";
-    String png = "C:\\Users\\hrala\\IdeaProjects\\instructor\\B36_GR5-CRM_Sprint-2\\src\\test\\resources\\files\\TestPng.png";
-    String txt = "C:\\Users\\hrala\\IdeaProjects\\instructor\\B36_GR5-CRM_Sprint-2\\src\\test\\resources\\files\\TestPdf.pdf";
-    List<WebElement> uploadedFiles = Driver.getDriver().findElements(By.xpath("//span[@class='files-text']"));
+    String projectPath = System.getProperty("user.dir");
 
-    @When("user selects the upload option")
-    public void user_selects_the_upload_option() {
+    String filePathDocx = "src/test/resources/files/TestDocx.docx";
+    String filePathJpeg = "src/test/resources/files/TestJpeg.jpg";
+    String filePathPdf = "src/test/resources/files/TestPdf.pdf";
+    String filePathPng = "src/test/resources/files/TestPng.png";
+    String filePathTxt = "src/test/resources/files/TestTxt.txt";
+
+    String docx = projectPath + "/" + filePathDocx;
+    String jpeg = projectPath + "/" + filePathJpeg;
+    String pdf = projectPath + "/" + filePathPdf;
+    String png = projectPath + "/" + filePathPng;
+    String txt = projectPath + "/" + filePathTxt;
+
+    @Given("the user is on the message input screen")
+    public void theUserIsOnTheMessageInputScreen() {
+
         homePage.sendMessageArea.click();
 
+    }
+
+    @And("the user clicks on the upload icon")
+    public void theUserClicksOnTheUploadIcon() {
         homePage.uploadIcon.click();
-
     }
 
-    @When("user chooses a valid file")
-    public void user_chooses_a_valid_file() {
+    @Given("the user selects the Upload files and images option and the user chooses a valid {string} file")
+    public void theUserSelectsTheUploadFilesAndImagesOptionAndTheUserChoosesAValidFile(String fileType) {
 
-        homePage.uploadFile(docx);
-        homePage.uploadFile(jpeg);
-//        homePage.uploadFile(pdf);
-        //homePage.uploadFileAndImages.click(); dont need to click
+        String filePath;
 
-
-    }
-
-    @Then("system should upload the file successfully and user click insert in text button")
-    public void system_should_upload_the_file_successfully_and_user_click_insert_in_text_button() {
-
-
-
-        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(5));
-        List<WebElement> insertInTextBtn = wait.until(ExpectedConditions.visibilityOfAllElements(Driver.getDriver().findElements(By.xpath("//span[contains(@id,'check-in-text-n')]"))));
-        //List<WebElement> insertInTextBtn = wait.until(ExpectedConditions.visibilityOfAllElements(Driver.getDriver().findElements(By.xpath("//table[@class='files-list']//td[@class='files-info']//span[@class='insert-btn']"))));
-
-        //List<WebElement> insertInTextBtn = Driver.getDriver().findElements(By.xpath("//div[@style='display: block; opacity: 1;']//span[contains(@id,'check-in-text-n')] "));
-        //List<WebElement> insertInTextBtn = Driver.getDriver().findElements(By.xpath("//td[@class='files-info']"));
-
-        for (WebElement each : insertInTextBtn) {
-
-
-                each.click();
-
-
-
+        switch (fileType.toLowerCase()) {
+            case "pdf":
+                filePath = pdf;
+                break;
+            case "txt":
+                filePath = txt;
+                break;
+            case "jpeg":
+                filePath = jpeg;
+                break;
+            case "png":
+                filePath = png;
+                break;
+            case "docx":
+                filePath = docx;
+                break;
+            default:
+                throw new IllegalArgumentException("Unsupported file type: " + fileType);
 
 
         }
+        homePage.uploadFile(filePath);
 
-        //Assert.assertEquals(1, uploadedFiles.size());
-
-    }
-
-    @And("uploaded file or image should display in message input field")
-    public void uploadedFileOrImageShouldDisplayInMessageInputField() {
-
-      //  homePage.messageInput.findElement("")
-
+        Assert.assertTrue(homePage.uploadedFiles.isDisplayed());
+        System.out.println("homePage.uploadedFiles.getText() = " + homePage.uploadedFiles.getText());
 
 
     }
 
-    @Then("supported {string} are uploaded")
-    public void supportedAreUploaded(String uploadType) {
+    @Given("the user has uploaded a valid file")
+    public void theUserHasUploadedAValidFile() {
+
+        homePage.uploadFile(jpeg);
 
     }
+
+    @When("the user clicks the Insert in Text button")
+    public void theUserClicksTheInsertInTextButton() {
+
+
+        homePage.insertInTextBtn.click();
+
+    }
+
+    @Then("the uploaded file should be displayed in the message input field")
+    public void theUploadedFileShouldBeDisplayedInTheMessageInputField() {
+
+        Assert.assertTrue(homePage.uploadedFiles.isDisplayed());
+    }
+
+    @And("the user should be able to type a message alongside the uploaded file")
+    public void theUserShouldBeAbleToTypeAMessageAlongsideTheUploadedFile() {
+
+        Driver.getDriver().switchTo().frame(homePage.iframeInputMessage);
+        homePage.messageInput.sendKeys(" Be happy!");
+
+    }
+
+    @When("the user clicks the Remove icon next to the uploaded file or image")
+    public void theUserClicksTheIconNextToTheUploadedFileOrImage() {
+
+        homePage.filesDelBtn.click();
+
+    }
+
+    @Then("the file or image should be removed from the message input field")
+    public void theFileOrImageShouldBeRemovedFromTheMessageInputField() {
+
+        Assert.assertTrue(homePage.iframeInputMessage.getText().isEmpty());
+
+    }
+
 }
