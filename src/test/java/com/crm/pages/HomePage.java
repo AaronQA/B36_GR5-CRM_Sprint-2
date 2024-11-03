@@ -13,6 +13,9 @@ public class HomePage {
         PageFactory.initElements(Driver.getDriver(), this);
     }
 
+    @FindBy(xpath = "//a[@title='Activity Stream']")
+    public WebElement activityStreamTab;
+
     @FindBy(xpath = "//span[@id='feed-add-post-form-tab-message']")
     public WebElement message;
 
@@ -22,13 +25,13 @@ public class HomePage {
     @FindBy(xpath = "//span[@id='feed-add-post-form-tab-calendar']")
     public WebElement event;
 
-    @FindBy (xpath="//span[@id='feed-add-post-form-tab-vote']")
+    @FindBy(xpath = "//span[@id='feed-add-post-form-tab-vote']")
     public WebElement poll;
 
     @FindBy(xpath = "//span[@id='feed-add-post-form-link-more']")
     public WebElement more;
 
-    @FindBy(xpath= "//div[@class='feed-add-post-form-variants']/span")
+    @FindBy(xpath = "//div[@class='feed-add-post-form-variants']/span")
     public List<WebElement> feedOptions;
 
 
