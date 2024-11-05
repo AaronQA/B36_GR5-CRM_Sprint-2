@@ -2,7 +2,9 @@ package com.crm.step_definitions;
 
 
 import com.crm.pages.HomePage;
+import com.crm.utilities.BrowserUtils;
 import com.crm.utilities.Driver;
+import io.cucumber.java.bs.A;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -47,6 +49,7 @@ public class US05_UploadFilesAndPic_StepDefs {
 
     @And("the user clicks on the upload icon")
     public void theUserClicksOnTheUploadIcon() {
+        Driver.getDriver().switchTo().parentFrame();
         homePage.uploadIcon.click();
     }
 
@@ -102,7 +105,12 @@ public class US05_UploadFilesAndPic_StepDefs {
     @Then("the uploaded file should be displayed in the message input field")
     public void theUploadedFileShouldBeDisplayedInTheMessageInputField() {
 
-        Assert.assertTrue(homePage.uploadedFiles.isDisplayed());
+        Driver.getDriver().switchTo().frame(homePage.iframeInputMessage);
+        String actualFileName = homePage.picture.getAttribute("src");
+        System.out.println("actualFileName = " + actualFileName);
+        Assert.assertTrue(actualFileName.endsWith(".jpg") || actualFileName.endsWith(".png"));
+
+
     }
 
     @And("the user should be able to type a message alongside the uploaded file")

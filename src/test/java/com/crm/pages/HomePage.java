@@ -68,8 +68,7 @@ public class HomePage {
     @FindBy(xpath = "//span[contains(@id,'check-in-text-')]")
 
     public WebElement insertInTextBtn;
-
-    @FindBy(xpath = "//tr[contains(@id,'disk-edit-attachn')]")
+    @FindBy(xpath = "//tr[contains(@id,'disk-edit-attachn')]/td[1]/span/span[1]")
 
     public WebElement uploadedFiles;
 
@@ -77,6 +76,12 @@ public class HomePage {
     @FindBy(xpath = "//span[@class='del-but']")
 
     public WebElement filesDelBtn;
+
+
+
+    @FindBy(xpath = "//img")
+    public WebElement picture;
+
 
 
 
@@ -90,8 +95,3 @@ public class HomePage {
 
 
 }
-
-
-
-
-

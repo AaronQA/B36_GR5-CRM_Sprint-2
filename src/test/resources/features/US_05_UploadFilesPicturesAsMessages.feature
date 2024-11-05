@@ -1,4 +1,4 @@
-
+@wip
 Feature: User uploads files and pictures as messages
   User on the Active Stream page
 
@@ -31,29 +31,15 @@ Feature: User uploads files and pictures as messages
       | marketing | docx     |
 
 
-  Scenario Outline: User inserts an uploaded file or image  the text input
-    When user logs in as "<userType>"
-    And the user is on the message input screen
-    And the user clicks on the upload icon
-    Given the user has uploaded a valid file
-    When the user clicks the Insert in Text button
-    Then the uploaded file should be displayed in the message input field
-
-    Examples:
-      | userType  |
-      | hr        |
-      | helpdesk  |
-      | marketing |
-
-
   Scenario Outline: User inserts an uploaded file or image into the text
     When user logs in as "<userType>"
     And the user is on the message input screen
+    And the user should be able to type a message alongside the uploaded file
     And the user clicks on the upload icon
     Given the user has uploaded a valid file
     When the user clicks the Insert in Text button
     Then the uploaded file should be displayed in the message input field
-    And the user should be able to type a message alongside the uploaded file
+
     Examples:
       | userType  |
       | hr        |
@@ -64,14 +50,15 @@ Feature: User uploads files and pictures as messages
   Scenario Outline: User removes an uploaded file or image before sending
     When user logs in as "<userType>"
     And the user is on the message input screen
+    And the user should be able to type a message alongside the uploaded file
     And the user clicks on the upload icon
     Given the user has uploaded a valid file
     When the user clicks the Insert in Text button
     When the user clicks the Remove icon next to the uploaded file or image
     Then the file or image should be removed from the message input field
     Examples:
+
       | userType  |
       | hr        |
       | helpdesk  |
       | marketing |
-
