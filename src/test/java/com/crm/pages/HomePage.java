@@ -1,10 +1,15 @@
 package com.crm.pages;
 
 import com.crm.utilities.Driver;
+import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
 import java.util.List;
 
 public class HomePage {
@@ -22,13 +27,13 @@ public class HomePage {
     @FindBy(xpath = "//span[@id='feed-add-post-form-tab-calendar']")
     public WebElement event;
 
-    @FindBy (xpath="//span[@id='feed-add-post-form-tab-vote']")
+    @FindBy(xpath = "//span[@id='feed-add-post-form-tab-vote']")
     public WebElement poll;
 
     @FindBy(xpath = "//span[@id='feed-add-post-form-link-more']")
     public WebElement more;
 
-    @FindBy(xpath= "//div[@class='feed-add-post-form-variants']/span")
+    @FindBy(xpath = "//div[@class='feed-add-post-form-variants']/span")
     public List<WebElement> feedOptions;
 
 
@@ -46,6 +51,7 @@ public class HomePage {
     public WebElement uploadFileAndImages;
 
 
+
     @FindBy(xpath = "//body[@contenteditable='true']")
     public WebElement messageInput;
 
@@ -59,13 +65,33 @@ public class HomePage {
     public WebElement sendButtonInMessage;
 
 
+    @FindBy(xpath = "//span[contains(@id,'check-in-text-')]")
+
+    public WebElement insertInTextBtn;
+    @FindBy(xpath = "//tr[contains(@id,'disk-edit-attachn')]/td[1]/span/span[1]")
+
+    public WebElement uploadedFiles;
+
+
+    @FindBy(xpath = "//span[@class='del-but']")
+
+    public WebElement filesDelBtn;
+
+
+
+    @FindBy(xpath = "//img")
+    public WebElement picture;
+
+
+
+
     public void uploadFile(String fileType) {
 
+
         this.uploadFileAndImages.sendKeys(fileType);
+
+
     }
 
 
 }
-
-
-
