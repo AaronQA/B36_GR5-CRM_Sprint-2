@@ -491,4 +491,8 @@ public class BrowserUtils {
         Driver.getDriver().navigate().refresh();
     }
 
+    public static void navigateToBack(){
+        Driver.getDriver().navigate().back();
+    }
+
 }
