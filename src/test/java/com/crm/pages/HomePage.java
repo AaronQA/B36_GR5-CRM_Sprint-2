@@ -18,6 +18,9 @@ public class HomePage {
         PageFactory.initElements(Driver.getDriver(), this);
     }
 
+    @FindBy(xpath = "//a[@title='Activity Stream']")
+    public WebElement activityStreamTab;
+
     @FindBy(xpath = "//span[@id='feed-add-post-form-tab-message']")
     public WebElement message;
 
