@@ -1,18 +1,12 @@
 package com.crm.step_definitions;
 
 import com.crm.pages.MyProfilePage;
-import com.crm.utilities.BrowserUtils;
-import com.crm.utilities.ConfigurationReader;
-import com.crm.utilities.Driver;
 import io.cucumber.java.en.And;
-import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
-import org.openqa.selenium.Alert;
-import org.openqa.selenium.WebElement;
 
-public class MyProfilePageStepDefinition {
+public class US_03_MyProfilePageStepDefinition {
 
     MyProfilePage myProfilePage = new MyProfilePage();
 
