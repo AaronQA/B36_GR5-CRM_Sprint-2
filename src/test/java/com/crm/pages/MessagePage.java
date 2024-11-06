@@ -14,6 +14,12 @@ public class MessagePage extends HomePage {
     @FindBy(xpath= "//span[.='The message title is not specified']")
     public WebElement errorMessageTitle;
 
+    @FindBy(xpath = " //span[contains(text(),'All employees')]")
+    public WebElement allEmployeesMessage;
+
+    @FindBy(xpath = "//button[@id='blog-submit-button-cancel'] ")
+    public WebElement cancelButton;
+
 
 
 }

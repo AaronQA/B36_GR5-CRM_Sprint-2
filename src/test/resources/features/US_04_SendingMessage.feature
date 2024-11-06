@@ -33,6 +33,36 @@ Feature:
       | helpdesk  |
       | marketing |
 
+    Scenario Outline: Successfully posting a message in the Activity Stream
+
+      Given user logs in as "<userType>"
+      When I select the Message tab
+      And I click on message feed
+      Then  user should see  message delivery is to 'All employees' by default
+      Examples:
+      |userType    |
+      |hr          |
+      |helpdesk    |
+      |marketing   |
+
+  Scenario Outline: Successfully posting a message in the Activity Stream
+    Given user logs in as "<userType>"
+    When I select the Message tab
+    Then  user can cancel sending message at any time before sending.
+
+    Examples:
+      |userType    |
+      |hr          |
+      |helpdesk    |
+      |marketing   |
+
+
+
+
+
+
+
+
 
 
 
