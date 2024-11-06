@@ -84,13 +84,12 @@ public class SendingMessageStepDef {
 
         }
 
-
+    @Then("I should see the error message no Title  {string} appears in the Activity Stream")
+    public void iShouldSeeTheErrorMessageNoTitleAppearsInTheActivityStream(String arg0) {
+        Driver.getDriver().switchTo().frame(messagePage.iframeInputMessage);
+        messagePage.messageInput.sendKeys(arg0);
     }
-
-
-
-
-
+    }
 
 
 
