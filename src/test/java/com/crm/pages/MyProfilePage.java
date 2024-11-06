@@ -43,7 +43,7 @@ public class MyProfilePage extends LogoutPage {
     public WebElement conversations;
 
     public void navigateToProfilePage(){
-        BrowserUtils.waitForPageToLoad(10);
+        BrowserUtils.waitForPageToLoad(20);
         userProfileIcon.click();
         myProfile.click();
     }
