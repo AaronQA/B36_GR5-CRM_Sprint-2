@@ -12,7 +12,17 @@ public class AppreciationPage extends HomePage {
     public WebElement iframeInputAppreciation;
 
     @FindBy(xpath="//span[.='The message title is not specified']")
-    public WebElement emptyErrorNotSpecified;
+    public WebElement errorMessageNoTitle;
+
+    @FindBy(xpath="//span[@class='feed-add-post-del-but']")
+    public WebElement deleteAllEmployee;
+
+    @FindBy(xpath="//span[.='Please specify at least one person.']")
+    public WebElement errorMessageNoPerson;
+
+    @FindBy (xpath=" //span[@class='feed-add-post-destination feed-add-post-destination-all-users']")
+    public WebElement isAllEmployeesSelectedByDefault;
+
 
 
 }
