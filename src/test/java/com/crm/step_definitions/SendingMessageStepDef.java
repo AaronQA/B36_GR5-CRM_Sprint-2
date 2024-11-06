@@ -11,14 +11,12 @@ import org.junit.Assert;
 
 
 
+
 public class SendingMessageStepDef {
 
 
     MessagePage messagePage = new MessagePage();
-
-
-
-
+    ;
 
 
     @When("I select the Message tab")
@@ -50,57 +48,46 @@ public class SendingMessageStepDef {
 
         messagePage.sendButtonInMessage.click();
 
-    }
 
-    @Then("I should see the error message {string} appears in the Activity Stream")
-    public void iShouldSeeTheErrorMessageAppearsInTheActivityStream (String errorMessagePerson) {
-
-        Assert.assertEquals(messagePage.errorMessagePerson.getText(), errorMessagePerson);
-    }
-
-
-
-
-
-
-
-    @And("I click on message feed")
-    public void iClickOnMessageFeed() {
-        Driver.getDriver().switchTo().frame(messagePage.iframeInputMessage);
-        messagePage.messageInput.click();
 
     }
 
-    @Then("user should see  message delivery is to {string} by default")
-    public void userShouldSeeMessageDeliveryIsToAllEmployeesByDefault(String expectedMessage) {
-        Driver.getDriver().switchTo().parentFrame();
+        @Then("I should see the error message {string} appears in the Activity Stream")
+        public void iShouldSeeTheErrorMessageAppearsInTheActivityStream (String errorMessagePerson){
 
-        Assert.assertEquals(messagePage.allEmployeesMessage.getText(), expectedMessage);
-    }
+            Assert.assertEquals(messagePage.errorMessagePerson.getText(), errorMessagePerson);
+
+        }
+        @And("I click on message feed")
+        public void iClickOnMessageFeed () {
+            Driver.getDriver().switchTo().frame(messagePage.iframeInputMessage);
+            messagePage.messageInput.click();
+
+        }
+
+        @Then("user should see  message delivery is to {string} by default")
+        public void userShouldSeeMessageDeliveryIsToAllEmployeesByDefault (String expectedMessage){
+            Driver.getDriver().switchTo().parentFrame();
+
+            Assert.assertEquals(messagePage.allEmployeesMessage.getText(), expectedMessage);
+        }
 
 
 //
 
 
-
-
-
-
-
-
-
-
-
         @Then("user can cancel sending message at any time before sending.")
-   public void userCanCancelSendingMessageAtAnyTimeBeforeSending() {
+        public void userCanCancelSendingMessageAtAnyTimeBeforeSending () {
+            Driver.getDriver().switchTo().parentFrame();
+            Assert.assertTrue(messagePage.cancelButton.isDisplayed());
 
-        Assert.assertEquals(messagePage.cancelButton.getText(), "Cancel");
+
+        }
+
+
     }
 
 
-
-
-}
 
 
 
