@@ -2,6 +2,7 @@
 package com.crm.step_definitions;
 
 
+import com.crm.pages.MessagePage;
 import com.crm.utilities.ConfigurationReader;
 import com.crm.utilities.Driver;
 import io.cucumber.java.en.Given;
