@@ -1,10 +1,8 @@
 Feature: Verify Activity Stream options
   As a user, I should be able to see all the options on the Activity Stream page.
 
-  Background: User is already on the login page
-    Given user is on the login page
 
-@login
+
   Scenario Outline: Verify that "<userType>" views the following options on the Activity Stream page
     Given user logs in as "<userType>"
     When  the user is on the Activity Stream page
