@@ -4,6 +4,7 @@ import com.crm.pages.HomePage;
 import com.crm.pages.LoginPage;
 import com.crm.pages.LogoutPage;
 import com.crm.utilities.BrowserUtils;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
@@ -52,4 +53,15 @@ public class US02_LogoutPage_StepDefs {
     }
 
 
+    @And("user clicks on the back arrow button")
+    public void userClicksOnTheBackArrowButton() {
+        BrowserUtils.sleep(2);
+        BrowserUtils.navigateToBack();
+    }
+
+    @And("user should to see {string} as page title")
+    public void userShouldToSeeAsPageTitle(String expectedTitle) {
+        //BrowserUtils.waitForPageToLoad(10);
+        BrowserUtils.verifyTitleContains(expectedTitle);
+    }
 }
