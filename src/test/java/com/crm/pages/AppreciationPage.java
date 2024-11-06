@@ -20,6 +20,9 @@ public class AppreciationPage extends HomePage {
     @FindBy(xpath="//span[.='Please specify at least one person.']")
     public WebElement errorMessageNoPerson;
 
+    @FindBy (xpath=" //span[@class='feed-add-post-destination feed-add-post-destination-all-users']")
+    public WebElement isAllEmployeesSelectedByDefault;
+
 
 
 }
